@@ -15,8 +15,9 @@ const dbSettings = {
 export const getConnection = async () => {
     try {
         const pool = await sql.connect(dbSettings)
-        const result = await pool.request().query("SELECT GETDATE()")
-        console.log(result)
+        // const {recordset} = await pool.request().query("SELECT GETDATE()")
+        // console.log(recordset[0])
+        return pool;
     } catch (error) {
         console.error(error)
     }
